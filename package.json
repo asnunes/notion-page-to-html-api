@@ -1,7 +1,7 @@
 {
   "name": "notion-page-to-html-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Vercel API wrapper to notion-page-to-html library",
   "main": "src/index.ts",
   "scripts": {
     "start": "vercel dev",
@@ -10,6 +10,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asnunes/notion-page-to-html-api.git"
+  },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.6.0",
     "@typescript-eslint/parser": "^4.6.0",
