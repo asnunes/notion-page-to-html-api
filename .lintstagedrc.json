@@ -1,3 +1,3 @@
 {
-  "*.ts": ["eslint 'api/**' --fix"]
+  "*.ts": ["eslint 'api/**' '_errors/**' --fix"]
 }
