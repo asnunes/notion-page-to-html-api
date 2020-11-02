@@ -1,0 +1,19 @@
+{
+  "redirects": [{ "source": "/", "destination": "https://github.com/asnunes/notion-page-to-html-api" }],
+  "rewrites": [{ "source": "/(.*)", "destination": "/api/$1" }],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "access-control-allow-origin",
+          "value": "*"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "s-maxage=10"
+        }
+      ]
+    }
+  ]
+}
