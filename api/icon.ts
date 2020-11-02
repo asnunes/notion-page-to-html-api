@@ -11,6 +11,8 @@ export default async (request: NowRequest, response: NowResponse): Promise<void 
     const content = await NotionPageToHtml.convert(url);
     const { icon } = content;
 
+    if (!icon) return response.send(404).send('ICON NOT FOUND');
+
     if (icon.includes('base64')) {
       const base64 = icon.split(',')[1];
       const format = icon.split(':')[1].split(';')[0];

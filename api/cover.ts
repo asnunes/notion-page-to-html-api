@@ -11,7 +11,7 @@ export default async (request: NowRequest, response: NowResponse): Promise<void 
     const content = await NotionPageToHtml.convert(url);
     const { cover } = content;
 
-    if (!cover) return response.status(404).send('NO COVER');
+    if (!cover) return response.status(404).send('COVER NOT FOUND');
 
     const base64 = cover.split(',')[1];
     const format = cover.split(':')[1].split(';')[0];
