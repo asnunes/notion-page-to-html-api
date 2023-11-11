@@ -4,11 +4,26 @@ import { MissingIdError } from '../_errors/missing-id';
 
 export default async (request: NowRequest, response: NowResponse): Promise<void | NowResponse> => {
   try {
-    const { id } = request.query;
+    const {
+      id,
+      bodyContentOnly,
+      excludeCSS,
+      excludeHeaderFromBody,
+      excludeMetadata,
+      excludeScripts,
+      excludeTitleFromHead,
+    } = request.query;
     if (!id) throw new MissingIdError();
 
     const url = `https://notion.so/${id}`;
-    const content = await NotionPageToHtml.convert(url);
+    const content = await NotionPageToHtml.convert(url, {
+      bodyContentOnly: bodyContentOnly === 'true',
+      excludeCSS: excludeCSS === 'true',
+      excludeHeaderFromBody: excludeHeaderFromBody === 'true',
+      excludeMetadata: excludeMetadata === 'true',
+      excludeScripts: excludeScripts === 'true',
+      excludeTitleFromHead: excludeTitleFromHead === 'true',
+    });
     const { html } = content;
 
     response.setHeader('Content-Type', 'text/html');
